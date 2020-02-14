@@ -108,8 +108,6 @@ class _FormPageState extends State<FormPage> {
               _buildemail(),
               _buildpass(),
               _buildnum(),
-//        _buildurl(),
-//        _buildphone(),
               SizedBox(
                 height: 20,
               ),
@@ -129,6 +127,8 @@ class _FormPageState extends State<FormPage> {
                         _formkey.currentState.save(),
                         // Hide Keyboard when Submit Is Clicked and valid;
                         FocusScope.of(context).unfocus(),
+
+                        // Call API to Process form
                         print(_emailfield),
                         print(_textfield),
                         print(_numfield),
