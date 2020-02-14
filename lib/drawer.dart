@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/alignment.dart';
+import 'screens/form.dart';
 
 class Dsplydrawer extends StatelessWidget {
   @override
@@ -34,9 +35,16 @@ class Dsplydrawer extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text('Profile'),
-                leading: Icon(Icons.person),
+                title: Text('Form'),
+                leading: Icon(Icons.assignment),
                 trailing: Icon(Icons.arrow_right),
+                onTap: () => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Formscreen('Form')))
+                },
               ),
               ListTile(
                 title: Text('Orders'),
