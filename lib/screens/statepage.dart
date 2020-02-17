@@ -10,12 +10,34 @@ class StatePage extends StatefulWidget {
 class _StatePageState extends State<StatePage> {
   @override
   Widget build(BuildContext context) {
-    
-    final counter  = Provider.of<Counter>(context);
+    final counter = Provider.of<Counter>(context,listen: true);
     return Column(
       children: <Widget>[
         Container(
-          child: Text('${counter.value}'),
+          child: Consumer<Counter>(
+            builder: (context, counter, child) {
+              return Text('Notifying chnage : ${counter.value}');
+            },
+          ),
+        ),
+        Container(
+          child: Text('Not Notifying chnage ${counter.value1}'),
+        ),
+        RaisedButton(
+          child: Text("Increase"),
+          color: Colors.red,
+          onPressed: () => {
+            counter.increment(),
+            counter.assigntoValue1(),
+          },
+        ),
+        RaisedButton(
+          child: Text("Notify Value 1"),
+          color: Colors.red,
+          onPressed: () => {
+
+            counter.notifyValue1(),
+          },
         ),
       ],
     );
