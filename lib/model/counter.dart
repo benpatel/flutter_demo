@@ -8,17 +8,17 @@ class Counter with ChangeNotifier {
   void increment() {
     value += 1;
     print('Value : ${value}');
+    assigntoValue1();
     notifyListeners();
   }
 
   void assigntoValue1() {
     value1 = value;
-    print('Value1 : ${value1}');
   }
 
   void notifyValue1() {
     print('Value1 : ${value1}');
-    notifyListeners();
+
 
   }
 }
